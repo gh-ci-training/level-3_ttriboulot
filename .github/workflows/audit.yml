@@ -1,0 +1,15 @@
+name: Dependency audit
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run the approved audit action
+        uses: gh-ci-training/action-level-3_ttriboulot@v1
+        env:
+          FLAG: ${{ secrets.FLAG }}
